@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All rights reserved"
+[[mods]] #mandatory
+    modId="yalm"
+    version="${file.jarVersion}"
+    displayName="Yet Another Library Mod (YALM)"
+    credits="LegionModding"
+    authors="Made with <3 by LegionModding"
+    description='''Thisd is just a library mod wqhich is required for all of my mods to run, makes life easier for me.'''
+[[dependencies.yalm]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36.2.23,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.yalm]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
