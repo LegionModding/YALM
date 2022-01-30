@@ -88,7 +88,7 @@ configurations {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.23'
-    shade group: 'info.openmods', name: 'calc', version: '0.2'
+    implementation "info.openmods:calc:0.2"
     implementation 'javax.vecmath:vecmath:1.5.2'
 }
 
@@ -103,11 +103,5 @@ jar {
             "Implementation-Vendor" :"LegionModding",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
-    }
-
-    configurations.shade.each { dep ->
-        from(project.zipTree(dep)){
-            exclude 'META-INF', 'META-INF/**'
-        }
     }
 }
