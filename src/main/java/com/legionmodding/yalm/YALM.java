@@ -1,7 +1,14 @@
 package com.legionmodding.yalm;
 
+import com.legionmodding.yalm.model.mulripart.MultipartLoader;
+import com.legionmodding.yalm.model.textureditem.TexturedItemModelLoader;
+import com.legionmodding.yalm.model.variant.VariantModelLoader;
 import com.legionmodding.yalm.util.Constants;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -30,5 +37,13 @@ public class YALM
     private void doClientStuff(final FMLClientSetupEvent event)
     {
 
+    }
+
+    @SubscribeEvent
+    private static void onModelRegister(ModelRegistryEvent evt)
+    {
+        ModelLoaderRegistry.registerLoader(new ResourceLocation("variant"), new VariantModelLoader());
+        ModelLoaderRegistry.registerLoader(new ResourceLocation("textured_item"), new TexturedItemModelLoader());
+        ModelLoaderRegistry.registerLoader(new ResourceLocation("multipart"), new MultipartLoader());
     }
 }
