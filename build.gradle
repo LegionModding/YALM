@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = 'forge-0.0.3'
+version = 'forge-0.0.4'
 group = 'com.legionmodding.yalm'
 archivesBaseName = 'YALM'
 
@@ -68,10 +68,28 @@ repositories {
         name = "DVS1 Maven FS"
         url = "https://dvs1.progwml6.com/files/maven/"
     }
+
+    maven {
+        name "OpenMods"
+        url "https://repo.openmods.info/artifactory/openmods"
+    }
+    maven {
+        name "OpenMods Extras"
+        url 'https://repo.openmods.info/artifactory/thirdparty'
+    }
+}
+
+configurations {
+    shade {
+        transitive = false
+    }
+    compile.extendsFrom shade
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.23'
+    shade group: 'info.openmods', name: 'calc', version: '0.2'
+    implementation 'javax.vecmath:vecmath:1.5.2'
 }
 
 jar {
@@ -85,5 +103,11 @@ jar {
             "Implementation-Vendor" :"LegionModding",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
+    }
+
+    configurations.shade.each { dep ->
+        from(project.zipTree(dep)){
+            exclude 'META-INF', 'META-INF/**'
+        }
     }
 }
