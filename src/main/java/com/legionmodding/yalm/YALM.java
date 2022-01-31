@@ -1,6 +1,7 @@
 package com.legionmodding.yalm;
 
 import com.legionmodding.yalm.model.mulripart.MultipartLoader;
+import com.legionmodding.yalm.model.textureditem.ItemTextureCapability;
 import com.legionmodding.yalm.model.textureditem.TexturedItemModelLoader;
 import com.legionmodding.yalm.model.variant.VariantModelLoader;
 import com.legionmodding.yalm.util.Constants;
@@ -31,7 +32,7 @@ public class YALM
 
     private void setup(final FMLCommonSetupEvent event)
     {
-
+        ItemTextureCapability.register();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)
