@@ -41,7 +41,7 @@ public class YALM
     }
 
     @SubscribeEvent
-    private static void onModelRegister(ModelRegistryEvent evt)
+    public static void onModelRegister(ModelRegistryEvent evt)
     {
         ModelLoaderRegistry.registerLoader(new ResourceLocation("variant"), new VariantModelLoader());
         ModelLoaderRegistry.registerLoader(new ResourceLocation("textured_item"), new TexturedItemModelLoader());
