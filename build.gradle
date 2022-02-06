@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = 'forge-0.0.9'
+version = 'forge-0.1.0'
 group = 'com.legionmodding.yalm'
 archivesBaseName = 'YALM'
 
