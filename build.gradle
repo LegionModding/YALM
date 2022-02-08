@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = 'forge-0.1.1'
+version = 'forge-0.1.2'
 group = 'com.legionmodding.yalm'
 archivesBaseName = 'YALM'
 
@@ -65,11 +65,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        name = "DVS1 Maven FS"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-
-    maven {
         name "OpenMods"
         url "https://repo.openmods.info/artifactory/openmods"
     }
@@ -77,13 +72,6 @@ repositories {
         name "OpenMods Extras"
         url 'https://repo.openmods.info/artifactory/thirdparty'
     }
-}
-
-configurations {
-    shade {
-        transitive = false
-    }
-    compile.extendsFrom shade
 }
 
 dependencies {
